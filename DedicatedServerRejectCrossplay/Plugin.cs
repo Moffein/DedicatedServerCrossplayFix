@@ -19,7 +19,7 @@ namespace DedicatedServerCrossplayFix
 
         private void NetworkPlayerName_Serialize(On.RoR2.NetworkPlayerName.orig_Serialize orig, ref NetworkPlayerName self, UnityEngine.Networking.NetworkWriter writer)
         {
-            if ((self.steamId == null || self.steamId == CSteamID.nil) && self.nameOverride == null)
+            if (self.steamId == CSteamID.nil && self.nameOverride == null)
             {
                 string resolvedName = self.GetResolvedName();
                 if (resolvedName.Length <= 0) resolvedName = "???";
